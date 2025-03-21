@@ -4,7 +4,7 @@ import members from '../models/Member.js';
 
 
 // Gets All Members
-router.get('/members',async(req,res)=>{
+router.get('/',async(req,res)=>{
    try {
      const allmembers =await members.find();
      res.json(allmembers);
@@ -15,7 +15,7 @@ router.get('/members',async(req,res)=>{
 });
 
 // Get Single Member By ID
- router.get('/members/:id',async(req,res)=>{
+ router.get('/:id',async(req,res)=>{
     try {
         const member = await members.findById(req.params.id);
         if(!member){
@@ -29,7 +29,7 @@ router.get('/members',async(req,res)=>{
 );
 
  // Create Member
- router.post('/members',async(req,res)=>{
+ router.post('/',async(req,res)=>{
   try {
       const newmember = new members(
           {
